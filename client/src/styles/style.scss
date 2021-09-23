@@ -1,0 +1,523 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500");
+@import url("https://fonts.googleapis.com/css?family=Monoton");
+
+$color-theme: rgb(140, 84, 230);
+$color-theme_darker: rgb(122, 51, 236);
+$color-theme_semi-lighter: rgb(148, 100, 226);
+$color-theme_lighter: rgb(192, 153, 255);
+$color-theme_ultra_lighter: rgb(210, 182, 255);
+$color-theme_analog: #d90ce8;
+$soft-shadow_lower: 0px 4px 13px 1px rgba(0, 0, 0, 0.6);
+$background-theme: #4b4b4b;
+$background-theme_darker: #232524;
+$soft-blue: #8ef2ff;
+$underline_theme: 3px solid $color-theme_analog;
+$antd-style-font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont,
+  "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+  "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol";
+
+body {
+  background-color: $background-theme;
+  color: #fff;
+}
+
+/*  /// infinite scrolling css
+.demo-infinite-container {
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  overflow: auto;
+  padding: 8px 24px;
+  height: 300px;
+}
+.demo-loading-container {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.private-container {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  display: flex;
+}
+
+.right-column {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-column {
+  flex: 1;
+}
+
+.content-container {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+}
+ */
+
+/// Overwriting Antd styles here
+//#region [ CSS_Region_Color_Primary ]
+
+.cancelButton.ant-btn {
+  &:hover,
+  &:active {
+    color: $color-theme !important;
+    border-color: $color-theme !important;
+  }
+}
+
+.ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+  background-color: $color-theme_analog;
+}
+
+.myMenu.ant-menu-horizontal {
+  font-size: 1.4em;
+  border-bottom: 0;
+  background-color: #16161600;
+}
+
+.artworksWrapperMenu.ant-menu-horizontal {
+  display: inline-block;
+  border-bottom: 0;
+  background-color: #16161600;
+}
+
+.ant-table-thead > tr > th {
+  background: $background-theme_darker !important;
+}
+
+.ant-btn-primary {
+  background-color: $color-theme !important;
+  border-color: $color-theme !important;
+  &:focus,
+  &:hover,
+  &:active {
+    background-color: $color-theme_semi-lighter !important;
+    border-color: $color-theme_darker !important;
+  }
+  &:disabled {
+    background-color: #fff !important;
+    border-color: rgb(184, 184, 184) !important;
+  }
+}
+
+#upload_button {
+  font-size: 1.5em;
+  height: inherit;
+  min-width: 5em;
+}
+
+.ant-tabs-tab-next-icon,
+.ant-tabs-tab-prev-icon {
+  color: #fff;
+}
+
+.ant-upload.ant-upload-drag {
+  border: 1px solid #fff !important;
+  box-shadow: $soft-shadow_lower !important;
+  transition: border-color 0.4s ease !important;
+  &:hover {
+    border: 1px solid $color-theme !important;
+  }
+}
+
+.ant-menu-horizontal > .ant-menu-item:hover,
+.ant-menu-horizontal > .ant-menu-submenu:hover,
+.ant-menu-horizontal > .ant-menu-item-active,
+.ant-menu-horizontal > .ant-menu-submenu-active,
+.ant-menu-horizontal > .ant-menu-item-open,
+.ant-menu-horizontal > .ant-menu-submenu-open,
+.ant-menu-horizontal > .ant-menu-item-selected,
+.ant-menu-horizontal > .ant-menu-submenu-selected {
+  border-bottom: 2px solid $color-theme_analog !important;
+}
+
+.ant-menu-submenu-popup {
+  z-index: 1050 !important;
+}
+
+.menu_custom_divider.ant-divider-horizontal {
+  margin: 0;
+  background: #c7c7c7 !important;
+}
+
+//@endregion
+
+.image_container {
+  transition: all 0.4s ease-out;
+}
+
+/* .image_container:hover {
+  transform: scale(1.05);
+  z-index: 1;
+} */
+
+/* 
+when .item:hover, show overlay.
+overwrite .item-overlay."position"
+*/
+
+.item:hover .item-overlay.top {
+  top: 83%;
+}
+
+/* 
+by default, overlay is visible… 
+*/
+.item-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  overflow: hidden;
+  color: white;
+  text-align: center;
+  /* fix text transition issue for .left and .right but need to overwrite left and right properties in .right */
+  transition: top 0.3s ease-out;
+}
+/*
+…but this hide it
+*/
+
+.item-overlay.top {
+  top: 100%;
+  font-size: 1.1em;
+}
+
+.item {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.starInfo-placement {
+  float: left;
+  margin-left: 3em;
+}
+
+.popover-text {
+  float: right;
+  margin-right: 3em;
+  /*   
+  background-color: rgba(82, 245, 196, 0.9);
+  border: 1px solid #347ccf;
+  background-color: #D4AF37; 
+  */
+  background-color: $color-theme;
+  padding: 0.3em;
+  border-radius: 9px;
+  box-shadow: -2px 4px 15px 1px rgba(0, 0, 0, 0.83);
+  transition: all 0.1s ease;
+}
+
+.popover-text:hover {
+  background-color: rgba(44, 110, 90, 0.308);
+  /*   
+  border: 0.15em solid #D4AF37;
+  color: rgb(238, 213, 131); 
+  */
+  border: 0.15em solid $color-theme;
+  font-size: 1.003em;
+}
+
+.singleImage-component_comment {
+  margin-top: 1%;
+  margin-right: 5%;
+  margin-bottom: 2em;
+  padding: 2em;
+  min-width: 50em;
+  width: 55%;
+  border: 1.2px solid #fff;
+  box-shadow: $soft-shadow_lower;
+  max-height: 83.2vh;
+  overflow-y: scroll;
+}
+
+.singleImage-component_comment::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+.singleImage-component_comment::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+
+.singleImage-component_comment::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: $color-theme_semi-lighter;
+}
+
+.singleImage-component_icons {
+  font-size: 1.2em;
+  margin-right: 0.5em;
+  color: #fff;
+}
+
+.singleImage-component_comment_submit {
+  top: 1em;
+  margin-bottom: 2em;
+}
+
+h3 {
+  color: #fff;
+  letter-spacing: 0.17em;
+  font-size: 1.3em;
+  font-family: "Montserrat", sans-serif;
+}
+
+.underline {
+  border-bottom: $underline_theme;
+}
+
+.main_typography_theme {
+  line-height: 1.8em;
+  font-size: 2.5em;
+  font-family: "Monoton", cursive;
+  color: $color-theme;
+}
+
+.main_typography_theme_alt {
+  display: inline-block;
+  font-size: 4em;
+  font-family: "Monoton", cursive;
+  color: $color-theme;
+  line-height: 1.3em;
+}
+
+h1.custom_h1 {
+  margin-bottom: 0;
+}
+
+h2.custom_h2 {
+  margin-bottom: 0;
+}
+
+.secondary_typography_theme {
+  letter-spacing: 0.21em;
+  font-size: 1.6em;
+  font-family: "Montserrat", sans-serif;
+  color: $color-theme_lighter;
+}
+
+.secondary_typography_theme_alt {
+  display: inline-block;
+  letter-spacing: 0.21em;
+  font-size: 2em;
+  font-family: "Montserrat", sans-serif;
+  color: $color-theme;
+  border-bottom: $underline_theme;
+}
+
+.tertiary_typography_theme {
+  letter-spacing: 0.1em;
+  font-size: 1.45em;
+  font-family: "Montserrat", sans-serif;
+  color: $color-theme_darker;
+}
+
+.quaternary_typography_theme {
+  font-size: 1.2em;
+  font-family: "Montserrat", sans-serif;
+  color: $color-theme;
+  font-weight: 500;
+}
+
+.clickableStar {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  cursor: pointer;
+  filter: grayscale(100%);
+  &:hover {
+    transition: all 0.3s ease-out;
+    filter: grayscale(0);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.cursor_pointer {
+  cursor: pointer;
+}
+
+.float_left {
+  float: left;
+}
+
+.float_right {
+  float: right;
+}
+
+.menu_items_mobile {
+  float: right;
+  margin: 1em;
+}
+
+.margin_right {
+  margin-right: 1em;
+}
+
+.padding_small {
+  padding: 1em;
+}
+
+.click_text {
+  user-select: none;
+  margin: auto;
+  &:hover {
+    color: $color-theme;
+  }
+}
+
+.content_center_image {
+  text-align: center;
+}
+
+.content_center {
+  display: flex;
+  justify-content: center;
+}
+
+.menu_logo {
+  text-decoration: none;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+.link_noDecoration {
+  font-family: "Montserrat", sans-serif;
+  color: $color-theme_lighter;
+  text-decoration: none;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+.link_noDecoration {
+  &:hover {
+    color: $color-theme_ultra_lighter;
+  }
+}
+
+.images_single {
+  margin: 2em;
+  box-shadow: $soft-shadow_lower;
+  object-fit: contain;
+  position: relative;
+  width: auto;
+  max-height: 83vh;
+}
+
+.commentList {
+  list-style: none;
+  padding-right: 2em;
+}
+
+.no-list-style {
+  list-style: none;
+}
+
+.display_inline {
+  display: inline;
+}
+
+.commentList_replies {
+  list-style: none;
+  transform: translateX(1.5em);
+}
+
+.ladder {
+  margin-bottom: 1.5em;
+  box-shadow: $soft-shadow_lower;
+}
+
+.color_white {
+  color: #fff;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.light_text {
+  font-family: $antd-style-font-family;
+  color: rgb(156, 156, 156);
+}
+
+.comments-content {
+  color: #3d3d3d;
+  font-size: 1.06rem;
+  letter-spacing: 0.05em;
+}
+
+.about-content {
+  font-size: 1.06rem;
+  letter-spacing: 0.05em;
+}
+
+.homepage_image_fullCover {
+  object-fit: contain;
+  max-height: 90vh;
+  position: relative;
+  width: auto;
+  /* max-width: 90vw; */
+}
+
+.fullnavbar {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.fullHeader {
+  background: rgba(34, 34, 34, 0.753);
+  padding-bottom: 1em;
+}
+
+.errorMessage {
+  margin-bottom: 2em;
+  width: 100%;
+}
+
+.button_push-down {
+  box-shadow: $soft-shadow_lower;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  &:active {
+    box-shadow: none;
+    transform: translateY(0.2em);
+  }
+}

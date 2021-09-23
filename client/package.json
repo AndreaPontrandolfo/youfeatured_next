@@ -1,0 +1,53 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd": "3.9.0",
+    "axios": "^0.18.0",
+    "history": "^4.7.2",
+    "jwt-decode": "^2.2.0",
+    "react": "^16.4.1",
+    "react-cookie": "^0.4.7",
+    "react-dom": "^16.4.1",
+    "react-loadable": "^5.5.0",
+    "react-measure": "^2.1.0",
+    "react-media": "^1.8.0",
+    "react-photo-gallery": "^6.2.1",
+    "react-progressive-image": "^0.6.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "react-scripts-ts-antd": "2.15.1",
+    "redux": "^4.0.0",
+    "redux-auth-wrapper": "^2.0.3",
+    "redux-form": "^7.4.2",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts-ts-antd start",
+    "build": "react-scripts-ts-antd build",
+    "test": "react-scripts-ts-antd test --env=jsdom --watchAll",
+    "eject": "react-scripts-ts-antd eject"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.1",
+    "@types/jwt-decode": "^2.2.1",
+    "@types/node": "^10.5.4",
+    "@types/prop-types": "^15.5.5",
+    "@types/react": "^16.4.7",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-loadable": "^5.4.1",
+    "@types/react-measure": "^2.0.4",
+    "@types/react-redux": "^6.0.4",
+    "@types/react-router-dom": "^4.2.7",
+    "@types/react-router-redux": "^5.0.15",
+    "@types/redux-auth-wrapper": "^2.0.8",
+    "@types/redux-form": "^7.4.5",
+    "prettier": "^1.14.3",
+    "tslint-config-airbnb": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-plugin-prettier": "^2.0.0",
+    "typescript": "^2.9.2"
+  }
+}
